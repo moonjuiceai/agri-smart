@@ -1,0 +1,173 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Learning - AgriSmart</title>
+    <link rel="stylesheet" href="{% static 'rekomendasi/style.css' %}">
+    <style>
+        .ml-container {
+            max-width: 750px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .ml-container h1 {
+            color: #245b45;
+            margin-bottom: 10px;
+        }
+
+        .ml-container p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .input-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .ml-button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #397a55;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .ml-button:hover {
+            background: #245b45;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 22px;
+            border-radius: 10px;
+            background: #edf8ef;
+            text-align: center;
+        }
+
+        .result-crop {
+            font-size: 30px;
+            font-weight: bold;
+            color: #245b45;
+            text-transform: capitalize;
+        }
+
+        .error-box {
+            margin-top: 20px;
+            padding: 12px;
+            background: #ffecec;
+            color: #b42318;
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #397a55;
+            text-decoration: none;
+        }
+
+        @media (max-width: 600px) {
+            .input-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="ml-container">
+
+    <h1>&#127793; Prediksi Tanaman</h1>
+    <p>Masukkan kondisi tanah dan iklim untuk mendapatkan rekomendasi tanaman menggunakan Machine Learning.</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <div class="input-grid">
+
+            <div class="form-group">
+                <label>Nitrogen (N)</label>
+                <input type="number" name="n" step="any" min="0" max="140" placeholder="Contoh: 90" required>
+            </div>
+
+            <div class="form-group">
+                <label>Fosfor (P)</label>
+                <input type="number" name="p" step="any" min="0" max="145" placeholder="Contoh: 42" required>
+            </div>
+
+            <div class="form-group">
+                <label>Kalium (K)</label>
+                <input type="number" name="k" step="any" min="0" max="205" placeholder="Contoh: 43" required>
+            </div>
+
+            <div class="form-group">
+                <label>Suhu (&deg;C)</label>
+                <input type="number" name="suhu" step="any" min="0" max="50" placeholder="Contoh: 20.8" required>
+            </div>
+
+            <div class="form-group">
+                <label>Kelembapan (%)</label>
+                <input type="number" name="kelembapan" step="any" min="0" max="100" placeholder="Contoh: 82" required>
+            </div>
+
+            <div class="form-group">
+                <label>pH Tanah</label>
+                <input type="number" name="ph" step="any" min="0" max="14" placeholder="Contoh: 6.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Curah Hujan (mm)</label>
+                <input type="number" name="curah_hujan" step="any" min="0" max="500" placeholder="Contoh: 202" required>
+            </div>
+
+        </div>
+
+        <button type="submit" class="ml-button">
+            Prediksi Tanaman
+        </button>
+    </form>
+
+    {% if hasil %}
+    <div class="result-box">
+        <h2>Hasil Prediksi</h2>
+        <div class="result-crop">&#127807; {{ hasil }}</div>
+        <p>Tanaman yang paling sesuai berdasarkan prediksi model Random Forest.</p>
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div class="error-box">{{ error }}</div>
+    {% endif %}
+
+    <a href="/" class="back-link">&larr; Kembali ke Beranda</a>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,144 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuzzy Logic - AgriSmart</title>
+    <link rel="stylesheet" href="{% static 'rekomendasi/style.css' %}">
+    <style>
+        .fuzzy-container {
+            max-width: 700px;
+            margin: 40px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .fuzzy-container h1 {
+            color: #245b45;
+            margin-bottom: 10px;
+        }
+
+        .fuzzy-container p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+
+        .fuzzy-button {
+            width: 100%;
+            padding: 13px;
+            border: none;
+            border-radius: 8px;
+            background: #397a55;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .fuzzy-button:hover {
+            background: #245b45;
+        }
+
+        .result-box {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 10px;
+            background: #edf8ef;
+            text-align: center;
+        }
+
+        .result-score {
+            font-size: 36px;
+            font-weight: bold;
+            color: #245b45;
+        }
+
+        .error-box {
+            margin-top: 20px;
+            padding: 12px;
+            background: #ffecec;
+            color: #b42318;
+            border-radius: 8px;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #397a55;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="fuzzy-container">
+        <h1>🌱 Analisis Kesesuaian Tanaman</h1>
+        <p>Masukkan kondisi tanah dan iklim untuk menghitung tingkat kesesuaian menggunakan Fuzzy Logic.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="form-group">
+                <label>Suhu (°C)</label>
+                <input type="number" name="suhu" step="any" min="0" max="50" placeholder="Contoh: 27" required>
+            </div>
+
+            <div class="form-group">
+                <label>Kelembapan (%)</label>
+                <input type="number" name="kelembapan" step="any" min="0" max="100" placeholder="Contoh: 70" required>
+            </div>
+
+            <div class="form-group">
+                <label>pH Tanah</label>
+                <input type="number" name="ph" step="any" min="0" max="14" placeholder="Contoh: 6.5" required>
+            </div>
+
+            <div class="form-group">
+                <label>Curah Hujan (mm)</label>
+                <input type="number" name="curah_hujan" step="any" min="0" max="500" placeholder="Contoh: 200" required>
+            </div>
+
+            <button type="submit" class="fuzzy-button">
+                Hitung Kesesuaian
+            </button>
+        </form>
+
+        {% if hasil %}
+        <div class="result-box">
+            <h2>Hasil Analisis</h2>
+            <div class="result-score">{{ hasil.skor }}</div>
+            <h3>Tingkat Kesesuaian: {{ hasil.status }}</h3>
+        </div>
+        {% endif %}
+
+        {% if error %}
+        <div class="error-box">
+            {{ error }}
+        </div>
+        {% endif %}
+
+        <a href="/" class="back-link">← Kembali ke Beranda</a>
+    </div>
+
+</body>
+</html>

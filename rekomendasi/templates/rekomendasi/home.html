@@ -1,0 +1,106 @@
+﻿
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgriSmart - Smart Farming</title>
+    <link rel="stylesheet" href="{% static 'rekomendasi/style.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">&#127793; AgriSmart</div>
+    <div class="nav-links">
+        <a href="/">Beranda</a>
+        <a href="#fitur">Fitur</a>
+        <a href="#tentang">Tentang</a>
+    </div>
+    <a href="#fitur" class="nav-button">Mulai Sekarang</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <span class="tag">&#127807; SMART AGRICULTURE</span>
+        <h1>Rekomendasi Tanaman<br>
+            <span>Cerdas untuk Pertanian</span>
+        </h1>
+        <p>
+            Temukan tanaman yang paling sesuai dengan kondisi tanah
+            dan iklim menggunakan teknologi Machine Learning,
+            Fuzzy Logic, dan Artificial Intelligence.
+        </p>
+        <a href="#fitur" class="main-button">Mulai Rekomendasi &rarr;</a>
+    </div>
+
+    <div class="hero-image">
+        <div class="plant-icon">&#127806;</div>
+        <h3>Smart Farming</h3>
+        <p>Teknologi untuk pertanian yang lebih baik.</p>
+    </div>
+</section>
+
+<section class="features" id="fitur">
+    <div class="section-title">
+        <span>FITUR AGRISMART</span>
+        <h2>Teknologi Pertanian Cerdas</h2>
+        <p>Kenali fitur yang membantu proses rekomendasi tanaman.</p>
+    </div>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+            <div class="feature-icon">&#129302;</div>
+            <h3>Machine Learning</h3>
+            <p>Memprediksi jenis tanaman berdasarkan kondisi tanah dan iklim.</p>
+            <a href="/machine-learning/" class="main-button">
+                Coba Prediksi &rarr;
+            </a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">&#127777;</div>
+            <h3>Fuzzy Logic</h3>
+            <p>Menganalisis tingkat kesesuaian kondisi lingkungan untuk tanaman.</p>
+            <a href="/fuzzy/" class="main-button">
+                Analisis Sekarang &rarr;
+            </a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">&#128172;</div>
+            <h3>AI Assistant</h3>
+            <p>Memberikan penjelasan dan informasi seputar rekomendasi tanaman.</p>
+            <a href="/ai-assistant/" class="main-button">
+                Mulai Bertanya &rarr;
+            </a>
+        </div>
+
+        <div class="feature-card">
+            <div class="feature-icon">&#128202;</div>
+            <h3>Visualisasi Data</h3>
+            <p>Menampilkan grafik distribusi tanaman, evaluasi model, dan tingkat pengaruh fitur.</p>
+            <a href="/visualisasi/" class="main-button">
+                Lihat Grafik &rarr;
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="about" id="tentang">
+    <h2>Tentang AgriSmart</h2>
+    <p>
+        AgriSmart merupakan sistem pendukung keputusan pertanian
+        yang memanfaatkan data unsur hara N, P, K, suhu,
+        kelembapan, pH tanah, dan curah hujan.
+    </p>
+</section>
+
+<footer>
+    &copy; 2026 AgriSmart | Smart Agriculture Recommendation System
+</footer>
+
+</body>
+</html>

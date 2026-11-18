@@ -1,0 +1,17 @@
+﻿# Environment dan API Key
+.env
+
+# Database lokal
+db.sqlite3
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+venv/
+.venv/
+
+# File editor
+.vscode/
+.idea/

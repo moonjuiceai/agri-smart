@@ -1,0 +1,63 @@
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualisasi Data - AgriSmart</title>
+    <link rel="stylesheet" href="{% static 'rekomendasi/style.css' %}">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">&#127793; AgriSmart</div>
+    <div class="nav-links">
+        <a href="/">Beranda</a>
+        <a href="/#fitur">Fitur</a>
+        <a href="/#tentang">Tentang</a>
+    </div>
+    <a href="/" class="nav-button">Kembali</a>
+</nav>
+
+<section class="features">
+    <div class="section-title">
+        <span>&#128202; DATA VISUALIZATION</span>
+        <h2>Visualisasi Data AgriSmart</h2>
+        <p>Grafik hasil pengolahan dataset dan evaluasi Machine Learning.</p>
+    </div>
+
+    <div style="max-width:1000px; margin:30px auto; padding:20px;">
+
+        <div style="background:white; padding:20px; margin-bottom:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+            <h3>1. Distribusi Jenis Tanaman</h3>
+            <p>Grafik ini menunjukkan jumlah data untuk setiap jenis tanaman dalam dataset.</p>
+            <img src="{% static 'rekomendasi/visualizations/distribusi_tanaman.png' %}"
+                 alt="Grafik Distribusi Tanaman"
+                 style="width:100%; height:auto; border-radius:10px;">
+        </div>
+
+        <div style="background:white; padding:20px; margin-bottom:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+            <h3>2. Confusion Matrix</h3>
+            <p>Grafik ini memperlihatkan perbandingan hasil prediksi model dengan label sebenarnya.</p>
+            <img src="{% static 'rekomendasi/visualizations/confusion_matrix.png' %}"
+                 alt="Grafik Confusion Matrix"
+                 style="width:100%; height:auto; border-radius:10px;">
+        </div>
+
+        <div style="background:white; padding:20px; margin-bottom:30px; border-radius:15px; box-shadow:0 5px 20px rgba(0,0,0,0.08);">
+            <h3>3. Feature Importance</h3>
+            <p>Grafik ini menunjukkan tingkat pengaruh setiap fitur terhadap prediksi model.</p>
+            <img src="{% static 'rekomendasi/visualizations/feature_importance.png' %}"
+                 alt="Grafik Feature Importance"
+                 style="width:100%; height:auto; border-radius:10px;">
+        </div>
+
+    </div>
+</section>
+
+<footer>
+    &copy; 2026 AgriSmart | Smart Agriculture Recommendation System
+</footer>
+
+</body>
+</html>

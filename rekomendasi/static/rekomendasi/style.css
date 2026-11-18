@@ -1,0 +1,256 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #f7faf7;
+    color: #243b2b;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #267346;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #435849;
+}
+
+.nav-button, .main-button {
+    background: #287847;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 8px;
+    text-decoration: none;
+}
+
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 100px 10%;
+    gap: 40px;
+    background: #eaf4e9;
+}
+
+.hero-content {
+    max-width: 600px;
+}
+
+.tag {
+    color: #287847;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.hero h1 {
+    font-size: 43px;
+    line-height: 1.3;
+    margin: 22px 0;
+}
+
+.hero h1 span {
+    color: #287847;
+}
+
+.hero p {
+    line-height: 1.8;
+    color: #617365;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    background: white;
+    width: 310px;
+    min-height: 270px;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 10px 30px #00000010;
+}
+
+.plant-icon {
+    font-size: 100px;
+    margin-bottom: 15px;
+}
+
+.features {
+    padding: 80px 10%;
+    text-align: center;
+}
+
+.section-title span {
+    color: #287847;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.section-title h2 {
+    margin: 15px 0;
+    font-size: 30px;
+}
+
+.section-title p {
+    color: #718174;
+}
+
+.feature-container {
+    display: flex;
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.feature-card {
+    flex: 1;
+    background: white;
+    padding: 30px 22px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px #00000008;
+
+    /* PERBAIKAN POSISI ISI CARD */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 320px;
+}
+
+.feature-icon {
+    font-size: 40px;
+    margin-bottom: 18px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+
+.feature-card p, .about p {
+    color: #718174;
+    line-height: 1.7;
+}
+
+/* PERBAIKAN POSISI TOMBOL */
+.feature-card .main-button {
+    display: inline-block;
+    margin-top: auto;
+}
+
+.about {
+    text-align: center;
+    padding: 65px 15%;
+    background: #eaf4e9;
+}
+
+.about p {
+    margin-top: 15px;
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    color: #718174;
+    background: white;
+}
+
+@media (max-width: 768px) {
+    .navbar, .hero, .feature-container {
+        flex-direction: column;
+    }
+
+    .nav-links {
+        margin: 20px 0;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .hero-image {
+        width: 100%;
+    }
+}
+
+
+/* FIX TOTAL CARD FITUR AGRISMART */
+
+.feature-container {
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 25px;
+}
+
+.feature-card {
+    flex: 1;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    min-height: 340px;
+    height: auto !important;
+    padding: 30px 22px;
+    position: relative !important;
+    overflow: visible !important;
+}
+
+.feature-card .feature-icon {
+    position: static !important;
+    margin-bottom: 18px;
+    flex-shrink: 0;
+}
+
+.feature-card h3 {
+    position: static !important;
+    margin: 0 0 12px;
+    flex-shrink: 0;
+}
+
+.feature-card p {
+    position: static !important;
+    margin: 0 0 20px !important;
+    line-height: 1.7;
+    flex-shrink: 0;
+}
+
+.feature-card .main-button {
+    position: static !important;
+    display: inline-block !important;
+    margin: 0 !important;
+    transform: none !important;
+    float: none !important;
+    flex-shrink: 0;
+    z-index: 1;
+}
+
+/* TAMPILAN HP */
+@media (max-width: 768px) {
+    .feature-container {
+        flex-direction: column !important;
+    }
+
+    .feature-card {
+        width: 100%;
+        min-height: 300px;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
